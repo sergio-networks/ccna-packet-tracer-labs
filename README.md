@@ -10,7 +10,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 |---|---|---|
 | Lab 01 | Basic Cisco IOS & Switch Configuration | ✅ Completed |
 | Lab 02 | Ethernet Switching, ARP & Basic Routing | ✅ Completed |
-| Lab 03 | Static Routing | 🔜 Next |
+| Lab 03 | Static Routing | ✅ Completed |
 
 ## Skills Practiced
 
@@ -32,6 +32,9 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - `show ip arp`
 - `show ip interface brief`
 - `show mac address-table`
+- Static IPv4 routing
+- Next-hop IP addressing
+- Multi-router connectivity and troubleshooting
 
 ## Current Lab Network
 
