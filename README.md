@@ -36,16 +36,53 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - Static IPv4 routing
 - Next-hop IP addressing
 - Multi-router connectivity and troubleshooting
+- Switch interface configuration and verification
+- Ethernet speed and duplex configuration
+- Ethernet autonegotiation
+- Physical Layer troubleshooting
+- Interface status and error analysis
+- Troubleshooting `notconnect` vs `administratively down`
+- Using `show interfaces status` and `show interfaces`
 
-## Current Lab Network
+## Lab Topologies
+
+### Lab 01 — Basic IOS & Switch Configuration
+
+```text
+PC ─── S1
+```
+
+Cisco IOS navigation, basic switch configuration, passwords, and saving configurations.
+
+### Lab 02 — Ethernet, ARP & Basic Routing
 
 ```text
 PC1 ─┐
-PC2 ─┼── S1 ─── R1 ─── S2 ─── PC4
+PC2 ─┼── S1 ── R1 ── S2 ── PC4
 PC3 ─┘
+```
 
-LAN 1: 192.168.1.0/24
-LAN 2: 192.168.2.0/24
+Ethernet switching, MAC address learning, ARP, default gateways, and routing between two LANs.
 
-R1 G0/0: 192.168.1.1
-R1 G0/1: 192.168.2.1
+### Lab 03 — Static Routing
+
+```text
+PC1 ─┐
+PC2 ─┼── S1 ── R1 ───── R2 ── S3 ── PC5
+PC3 ─┘          │
+                S2
+                │
+               PC4
+```
+
+Multi-router topology using a `/30` transit network and static IPv4 routes to provide connectivity between remote networks.
+
+### Lab 04 — Switch Interface Troubleshooting
+
+```text
+             S1
+          /   |   \
+        PC1  PC2  PC3
+```
+
+Switch interface configuration and troubleshooting involving interface states, physical connectivity, speed, duplex, autonegotiation, and error verification.
