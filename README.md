@@ -12,6 +12,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 02 | Ethernet Switching, ARP & Basic Routing | ✅ Completed |
 | Lab 03 | Static Routing | ✅ Completed |
 | Lab 04 | Configuring and Verifying Switch Interfaces | ✅ Completed |
+| Lab 05 | Implementing Ethernet VLANs | ✅ Completed |
 
 ## Skills Practiced
 
@@ -86,3 +87,21 @@ Multi-router topology using a `/30` transit network and static IPv4 routes to pr
 ```
 
 Switch interface configuration and troubleshooting involving interface states, physical connectivity, speed, duplex, autonegotiation, and error verification.
+
+### Lab 05 — Implementing Ethernet VLANs
+
+```text
+              802.1Q Trunk
+           VLAN 10 + VLAN 20
+          Gi0/1         Gi0/1
+             ═══════════
+            S1          S2
+           /  \        /  \
+       Fa0/1  Fa0/2  Fa0/1  Fa0/2
+         |      |      |      |
+        PC1    PC2    PC3    PC4
+         |      |      |      |
+      VLAN10 VLAN20 VLAN10 VLAN20
+```
+
+Two-switch VLAN topology using access ports and an 802.1Q trunk to extend VLAN 10 and VLAN 20 across both switches while maintaining Layer 2 separation between the VLANs.
