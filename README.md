@@ -13,6 +13,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 03 | Static Routing | ✅ Completed |
 | Lab 04 | Configuring and Verifying Switch Interfaces | ✅ Completed |
 | Lab 05 | Implementing Ethernet VLANs | ✅ Completed |
+| Lab 06 | Spanning Tree Protocol | ✅ Completed |
 
 ## Skills Practiced
 
@@ -44,6 +45,15 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - Interface status and error analysis
 - Troubleshooting `notconnect` vs `administratively down`
 - Using `show interfaces status` and `show interfaces`
+- Spanning Tree Protocol (STP)
+- Layer 2 loop prevention
+- Root bridge election
+- Bridge IDs and STP priority
+- Root, designated, and alternate port roles
+- STP path cost
+- STP port states
+- STP convergence and reconvergence
+- Redundant Layer 2 network design
 
 ## Lab Topologies
 
@@ -105,3 +115,15 @@ Switch interface configuration and troubleshooting involving interface states, p
 ```
 
 Two-switch VLAN topology using access ports and an 802.1Q trunk to extend VLAN 10 and VLAN 20 across both switches while maintaining Layer 2 separation between the VLANs.
+
+### Lab 06 — Spanning Tree Protocol
+
+```text
+                 S1
+            Root Bridge
+              /    \
+             /      \
+            S2------S3
+```
+
+Spanning Tree Protocol, root bridge election, STP port roles and states, redundant Layer 2 paths, and STP reconvergence after a link failure.
