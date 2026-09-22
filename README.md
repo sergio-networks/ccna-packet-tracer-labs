@@ -14,6 +14,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 04 | Configuring and Verifying Switch Interfaces | ✅ Completed |
 | Lab 05 | Implementing Ethernet VLANs | ✅ Completed |
 | Lab 06 | Spanning Tree Protocol | ✅ Completed |
+| Lab 07 | RSTP and Ethernet Configuration | ✅ Completed |
 
 ## Skills Practiced
 
@@ -54,6 +55,13 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - STP port states
 - STP convergence and reconvergence
 - Redundant Layer 2 network design
+- Rapid Spanning Tree Protocol (RSTP)
+- Rapid PVST+
+- Root bridge primary and secondary configuration
+- RSTP verification and troubleshooting
+- PortFast and edge ports
+- BPDU Guard
+- Err-disabled interface troubleshooting and recovery
 
 ## Lab Topologies
 
@@ -127,3 +135,19 @@ Two-switch VLAN topology using access ports and an 802.1Q trunk to extend VLAN 1
 ```
 
 Spanning Tree Protocol, root bridge election, STP port roles and states, redundant Layer 2 paths, and STP reconvergence after a link failure.
+
+### Lab 07 — RSTP and Ethernet Configuration
+
+```text
+                    S1
+               Primary Root
+                  /    \
+                 /      \
+                S2------S3
+                |
+              Fa0/1
+                |
+               PC1
+```
+
+Three-switch Rapid PVST+ topology used to configure an intentional primary and secondary Root Bridge, verify RSTP operation, and demonstrate PortFast and BPDU Guard protection on an edge port. BPDU Guard was tested by connecting an unexpected switch and recovering the resulting err-disabled interface.
