@@ -15,6 +15,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 05 | Implementing Ethernet VLANs | ✅ Completed |
 | Lab 06 | Spanning Tree Protocol | ✅ Completed |
 | Lab 07 | RSTP and Ethernet Configuration | ✅ Completed |
+| Lab 08 | Router-on-a-Stick (Inter-VLAN Routing) | ✅ Completed |
 
 ## Skills Practiced
 
@@ -62,6 +63,9 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - PortFast and edge ports
 - BPDU Guard
 - Err-disabled interface troubleshooting and recovery
+- Router-on-a-Stick (ROAS)
+- Inter-VLAN Routing
+- 802.1Q Trunking and Router Subinterfaces
 
 ## Lab Topologies
 
@@ -151,3 +155,23 @@ Spanning Tree Protocol, root bridge election, STP port roles and states, redunda
 ```
 
 Three-switch Rapid PVST+ topology used to configure an intentional primary and secondary Root Bridge, verify RSTP operation, and demonstrate PortFast and BPDU Guard protection on an edge port. BPDU Guard was tested by connecting an unexpected switch and recovering the resulting err-disabled interface.
+
+### Lab 08 — Router-on-a-Stick (Inter-VLAN Routing)
+
+```text
+                  R1
+                G0/0
+                  |
+            802.1Q Trunk
+                  |
+                G0/1
+                  S1
+               /      \
+          Fa0/1        Fa0/2
+            |            |
+           PC1          PC2
+         VLAN 10      VLAN 20
+          SALES          IT
+```
+
+Configured router-on-a-stick using 802.1Q trunking and router subinterfaces to enable communication between VLAN 10 and VLAN 20.
