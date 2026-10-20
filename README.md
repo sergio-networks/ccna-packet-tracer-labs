@@ -16,6 +16,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 06 | Spanning Tree Protocol | ✅ Completed |
 | Lab 07 | RSTP and Ethernet Configuration | ✅ Completed |
 | Lab 08 | Router-on-a-Stick (Inter-VLAN Routing) | ✅ Completed |
+| Lab 09 | Layer 3 Switching with SVIs | ✅ Completed |
 
 ## Skills Practiced
 
@@ -66,6 +67,10 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - Router-on-a-Stick (ROAS)
 - Inter-VLAN Routing
 - 802.1Q Trunking and Router Subinterfaces
+- Layer 3 Switching
+- Switched Virtual Interfaces (SVIs)
+- Inter-VLAN Routing Using Multilayer Switches
+- Connected Route Verification
 
 ## Lab Topologies
 
@@ -175,3 +180,20 @@ Three-switch Rapid PVST+ topology used to configure an intentional primary and s
 ```
 
 Configured router-on-a-stick using 802.1Q trunking and router subinterfaces to enable communication between VLAN 10 and VLAN 20.
+
+### Lab 09 — Layer 3 Switching with SVIs
+
+```text
+             MLS1 (3560)
+              /       \
+           Fa0/1     Fa0/2
+             |         |
+            PC1       PC2
+          VLAN 10   VLAN 20
+           SALES       IT
+
+      SVI VLAN 10: 192.168.10.1
+      SVI VLAN 20: 192.168.20.1
+```
+
+Configured a Cisco 3560 multilayer switch with SVIs and `ip routing` to enable communication between VLAN 10 and VLAN 20 without an external router.
