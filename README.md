@@ -17,6 +17,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 07 | RSTP and Ethernet Configuration | ✅ Completed |
 | Lab 08 | Router-on-a-Stick (Inter-VLAN Routing) | ✅ Completed |
 | Lab 09 | Layer 3 Switching with SVIs | ✅ Completed |
+| Lab 10 | DHCP Configuration & Relay | ✅ Completed |
 
 ## Skills Practiced
 
@@ -71,6 +72,10 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - Switched Virtual Interfaces (SVIs)
 - Inter-VLAN Routing Using Multilayer Switches
 - Connected Route Verification
+- DHCP Server Configuration
+- DHCP Relay (`ip helper-address`)
+- DHCP Lease Verification
+- DHCP Troubleshooting
 
 ## Lab Topologies
 
@@ -197,3 +202,21 @@ Configured router-on-a-stick using 802.1Q trunking and router subinterfaces to e
 ```
 
 Configured a Cisco 3560 multilayer switch with SVIs and `ip routing` to enable communication between VLAN 10 and VLAN 20 without an external router.
+
+### Lab 10 — DHCP Configuration & Relay
+
+```text
+                    R1 (2911)
+                  /           \
+       G0/0: 192.168.50.1   G0/1: 192.168.60.1
+                |                  |
+               S1                 S2
+             /    \                |
+           PC1    PC2         DHCP-SERVER
+        .50.21   .50.22       192.168.60.10
+
+       Client Network          Server Network
+       192.168.50.0/24        192.168.60.0/24
+```
+
+Configured router-based DHCP and a dedicated DHCP server, then implemented DHCP relay using `ip helper-address` on R1's client-facing interface. Verified successful DHCP leases for PC1 and PC2 and connectivity between the client and server networks.
