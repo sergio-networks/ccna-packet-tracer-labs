@@ -18,6 +18,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 08 | Router-on-a-Stick (Inter-VLAN Routing) | ✅ Completed |
 | Lab 09 | Layer 3 Switching with SVIs | ✅ Completed |
 | Lab 10 | DHCP Configuration & Relay | ✅ Completed |
+| Lab 11 | Single-Area OSPF Configuration and Troubleshooting | ✅ Completed |
 
 ## Skills Practiced
 
@@ -76,6 +77,11 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - DHCP Relay (`ip helper-address`)
 - DHCP Lease Verification
 - DHCP Troubleshooting
+- Single-area OSPFv2 configuration across multiple routers
+- OSPF router ID configuration and neighbor adjacency verification
+- Dynamic route verification using `show ip route ospf`
+- OSPF area mismatch troubleshooting and adjacency recovery
+
 
 ## Lab Topologies
 
@@ -220,3 +226,27 @@ Configured a Cisco 3560 multilayer switch with SVIs and `ip routing` to enable c
 ```
 
 Configured router-based DHCP and a dedicated DHCP server, then implemented DHCP relay using `ip helper-address` on R1's client-facing interface. Verified successful DHCP leases for PC1 and PC2 and connectivity between the client and server networks.
+
+### Lab 11 — Single-Area OSPF Configuration and Troubleshooting
+
+```text
+           OSPF Area 0
+
+    R1              R2              R3
+    |               |               |
+  G0/0            G0/0            G0/0
+    |               |               |
+    +---------------+
+      10.0.12.0/30
+                    |
+                  G0/1
+                    |
+                    +---------------+
+                       10.0.23.0/30
+
+R1 Router ID: 1.1.1.1
+R2 Router ID: 2.2.2.2
+R3 Router ID: 3.3.3.3
+```
+
+Configured single-area OSPF across three routers, verified FULL neighbor adjacencies and dynamically learned routes, and confirmed end-to-end connectivity. Intentionally introduced an OSPF area mismatch on R3, identified the error, and restored the adjacency.
