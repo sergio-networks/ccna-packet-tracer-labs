@@ -19,6 +19,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 09 | Layer 3 Switching with SVIs | ✅ Completed |
 | Lab 10 | DHCP Configuration & Relay | ✅ Completed |
 | Lab 11 | Single-Area OSPF Configuration and Troubleshooting | ✅ Completed |
+| Lab 12 | Implementing Optional OSPF Features | ✅ Completed |
 
 ## Skills Practiced
 
@@ -81,7 +82,14 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - OSPF router ID configuration and neighbor adjacency verification
 - Dynamic route verification using `show ip route ospf`
 - OSPF area mismatch troubleshooting and adjacency recovery
-
+- OSPF passive interface configuration
+- Static default route configuration toward an ISP
+- Default route advertisement using `default-information originate`
+- OSPF external Type 2 (E2) route verification
+- Manual OSPF interface cost configuration
+- OSPF reference bandwidth configuration
+- OSPF route metric analysis and path selection
+- OSPF interface verification using `show ip ospf interface`
 
 ## Lab Topologies
 
@@ -250,3 +258,25 @@ R3 Router ID: 3.3.3.3
 ```
 
 Configured single-area OSPF across three routers, verified FULL neighbor adjacencies and dynamically learned routes, and confirmed end-to-end connectivity. Intentionally introduced an OSPF area mismatch on R3, identified the error, and restored the adjacency.
+
+### Lab 12 — Implementing Optional OSPF Features
+
+```text
+                    OSPF Area 0
+
+   LAN 1                                      LAN 3
+     |                                          |
+     R1 --------------- R2 ------------------- R3
+                        |
+                        |
+                       ISP
+
+            R1 --- R2 --- R3
+            OSPF Neighbors: FULL
+
+            R2 ISP Next Hop: 203.0.113.2
+            R1 G0/0 OSPF Cost: 25
+            Reference Bandwidth: 10000 Mbps
+```
+
+Configured optional OSPF features across a three-router network in area 0, including passive interfaces, default route advertisement using `default-information originate`, manual OSPF interface cost adjustments, and reference bandwidth configuration. Verified FULL neighbor adjacencies, OSPF external Type 2 default routes (`O*E2`), updated interface costs, and end-to-end LAN connectivity.
