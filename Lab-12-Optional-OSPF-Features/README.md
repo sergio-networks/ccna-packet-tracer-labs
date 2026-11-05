@@ -1,5 +1,4 @@
-
-# Lab 12 — Implementing Optional OSPF Features
+# lab 12 — Implementing Optional OSPF Features
 
 **CCNA 200-301 | Chapter 23 | Cisco Packet Tracer**
 
