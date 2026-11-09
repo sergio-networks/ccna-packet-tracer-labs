@@ -20,6 +20,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 10 | DHCP Configuration & Relay | ✅ Completed |
 | Lab 11 | Single-Area OSPF Configuration and Troubleshooting | ✅ Completed |
 | Lab 12 | Implementing Optional OSPF Features | ✅ Completed |
+| Lab 13 | OSPF Neighbors and DR/BDR Elections | ✅ Completed |
 
 ## Skills Practiced
 
@@ -90,6 +91,12 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - OSPF reference bandwidth configuration
 - OSPF route metric analysis and path selection
 - OSPF interface verification using `show ip ospf interface`
+  - OSPF DR and BDR elections on broadcast networks
+- OSPF interface priority configuration
+- OSPF non-preemptive election behavior
+- OSPF DROTHER neighbor relationships
+- OSPF DR failure simulation and BDR promotion
+- OSPF neighbor recovery and adjacency verification
 
 ## Lab Topologies
 
@@ -280,3 +287,31 @@ Configured single-area OSPF across three routers, verified FULL neighbor adjacen
 ```
 
 Configured optional OSPF features across a three-router network in area 0, including passive interfaces, default route advertisement using `default-information originate`, manual OSPF interface cost adjustments, and reference bandwidth configuration. Verified FULL neighbor adjacencies, OSPF external Type 2 default routes (`O*E2`), updated interface costs, and end-to-end LAN connectivity.
+
+### Lab 13 — OSPF Neighbors and DR/BDR Elections
+
+```text
+                    OSPF Area 0
+
+       R1              R2              R3
+    192.168.10.1   192.168.10.2   192.168.10.3
+        |               |               |
+      G0/0            G0/0            G0/0
+        |               |               |
+        +---------------+---------------+
+                        |
+                        S1
+
+                 192.168.10.0/24
+
+       Initial Election:
+       R1: DR       R2: BDR      R3: DROTHER
+
+       After R1 Failure:
+       R1: DOWN     R2: DR       R3: BDR
+
+       After R1 Recovery:
+       R1: DROTHER  R2: DR       R3: BDR
+```
+
+Configured single-area OSPF across three routers connected to a shared broadcast Ethernet network. Verified FULL neighbor adjacencies, DR/BDR elections, and OSPF interface priority behavior. Simulated a DR failure, confirmed BDR promotion, and restored the original DR to demonstrate non-preemptive election behavior and successful neighbor recovery.
