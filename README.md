@@ -91,7 +91,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - OSPF reference bandwidth configuration
 - OSPF route metric analysis and path selection
 - OSPF interface verification using `show ip ospf interface`
-  - OSPF DR and BDR elections on broadcast networks
+- OSPF DR and BDR elections on broadcast networks
 - OSPF interface priority configuration
 - OSPF non-preemptive election behavior
 - OSPF DROTHER neighbor relationships
