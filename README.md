@@ -21,6 +21,7 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 | Lab 11 | Single-Area OSPF Configuration and Troubleshooting | ✅ Completed |
 | Lab 12 | Implementing Optional OSPF Features | ✅ Completed |
 | Lab 13 | OSPF Neighbors and DR/BDR Elections | ✅ Completed |
+| Lab 14 | IPv6 Router Configuration | ✅ Completed |
 
 ## Skills Practiced
 
@@ -97,6 +98,18 @@ My goal is to use these labs to reinforce networking concepts, practice Cisco IO
 - OSPF DROTHER neighbor relationships
 - OSPF DR failure simulation and BDR promotion
 - OSPF neighbor recovery and adjacency verification
+- IPv6 global unicast address configuration
+- IPv6 link-local address configuration
+- Enabling IPv6 forwarding using `ipv6 unicast-routing`
+- IPv6 addressing and prefix notation
+- IPv6 connectivity testing using `ping`
+- IPv6 Neighbor Discovery Protocol (NDP)
+- IPv6 neighbor table verification using `show ipv6 neighbors`
+- IPv6 interface verification using `show ipv6 interface`
+- Modified EUI-64 interface identifier calculation
+- EUI-64 address configuration using the `eui-64` keyword
+- IPv6 multicast addresses and group membership
+- IPv6 interface status and connectivity troubleshooting
 
 ## Lab Topologies
 
@@ -135,8 +148,8 @@ Multi-router topology using a `/30` transit network and static IPv4 routes to pr
 
 ```text
              S1
-          /   |   \
-        PC1  PC2  PC3
+           /   |   \
+         PC1  PC2  PC3
 ```
 
 Switch interface configuration and troubleshooting involving interface states, physical connectivity, speed, duplex, autonegotiation, and error verification.
@@ -162,7 +175,7 @@ Two-switch VLAN topology using access ports and an 802.1Q trunk to extend VLAN 1
 ### Lab 06 — Spanning Tree Protocol
 
 ```text
-                 S1
+                S1
             Root Bridge
               /    \
              /      \
@@ -174,7 +187,7 @@ Spanning Tree Protocol, root bridge election, STP port roles and states, redunda
 ### Lab 07 — RSTP and Ethernet Configuration
 
 ```text
-                    S1
+                   S1
                Primary Root
                   /    \
                  /      \
@@ -190,19 +203,19 @@ Three-switch Rapid PVST+ topology used to configure an intentional primary and s
 ### Lab 08 — Router-on-a-Stick (Inter-VLAN Routing)
 
 ```text
-                  R1
-                G0/0
-                  |
+                 R1
+               G0/0
+                 |
             802.1Q Trunk
-                  |
-                G0/1
-                  S1
-               /      \
-          Fa0/1        Fa0/2
-            |            |
-           PC1          PC2
-         VLAN 10      VLAN 20
-          SALES          IT
+                 |
+               G0/1
+                 S1
+               /    \
+          Fa0/1      Fa0/2
+            |          |
+           PC1        PC2
+         VLAN 10    VLAN 20
+          SALES        IT
 ```
 
 Configured router-on-a-stick using 802.1Q trunking and router subinterfaces to enable communication between VLAN 10 and VLAN 20.
@@ -253,9 +266,9 @@ Configured router-based DHCP and a dedicated DHCP server, then implemented DHCP 
     |               |               |
     +---------------+
       10.0.12.0/30
-                    |
-                  G0/1
-                    |
+                   |
+                 G0/1
+                   |
                     +---------------+
                        10.0.23.0/30
 
@@ -274,9 +287,9 @@ Configured single-area OSPF across three routers, verified FULL neighbor adjacen
    LAN 1                                      LAN 3
      |                                          |
      R1 --------------- R2 ------------------- R3
-                        |
-                        |
-                       ISP
+                       |
+                       |
+                      ISP
 
             R1 --- R2 --- R3
             OSPF Neighbors: FULL
@@ -299,8 +312,8 @@ Configured optional OSPF features across a three-router network in area 0, inclu
       G0/0            G0/0            G0/0
         |               |               |
         +---------------+---------------+
-                        |
-                        S1
+                       |
+                       S1
 
                  192.168.10.0/24
 
@@ -315,3 +328,29 @@ Configured optional OSPF features across a three-router network in area 0, inclu
 ```
 
 Configured single-area OSPF across three routers connected to a shared broadcast Ethernet network. Verified FULL neighbor adjacencies, DR/BDR elections, and OSPF interface priority behavior. Simulated a DR failure, confirmed BDR promotion, and restored the original DR to demonstrate non-preemptive election behavior and successful neighbor recovery.
+
+### Lab 14 — IPv6 Router Configuration
+
+```text
+                 IPv6 Transit Network
+                  2001:DB8:12::/64
+
+          R1                           R2
+     Cisco 2911                    Cisco 2911
+          |                            |
+        G0/0 ------------------------ G0/0
+          |                            |
+   2001:DB8:12::1                2001:DB8:12::2
+      FE80::1                       FE80::2
+
+          IPv6 Global Unicast Connectivity
+             IPv6 Link-Local Connectivity
+```
+
+Configured IPv6 addressing across two Cisco 2911 routers using the `2001:DB8:12::/64` network. Enabled IPv6 forwarding with `ipv6 unicast-routing`, assigned global unicast and manual link-local addresses, and verified successful IPv6 connectivity using `ping`.
+
+Confirmed IPv6 Neighbor Discovery by examining the neighbor table with `show ipv6 neighbors`. Practiced link-local communication by specifying the outgoing interface during a ping.
+
+Configured EUI-64 addressing on R1 and reviewed the modified EUI-64 calculation using the interface MAC address. Packet Tracer reported an EUI-labeled address that did not match the expected MAC-derived interface identifier, providing an additional opportunity to analyze and troubleshoot IPv6 addressing behavior.
+
+Verified interface status and IPv6 configuration using `show ipv6 interface`, `show interfaces`, and `show running-config`.
